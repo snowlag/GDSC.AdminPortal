@@ -42,7 +42,7 @@ const CreateTeam = (props) => {
     }
 
     const handleChange = (event) => {
-        console.log(event.target.name , event.target.value)
+        console.log(event.target.name, event.target.value)
         setValues({
             ...values,
             [event.target.name]: event.target.value
@@ -50,9 +50,23 @@ const CreateTeam = (props) => {
     };
 
 
+    //Add custom validation here if needed
+    const customValidator = () => {
+        //file validation
+        let result = true;
+        console.log(File)
+        if (!File) {
+            result = false
+        }
+        return result
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(values)
+        if (customValidator()) {
+            console.log(values)
+        }
+
     }
 
     return (
@@ -107,7 +121,7 @@ const CreateTeam = (props) => {
                             />
                         </Grid>
                         <Grid item xs={4}>
-                        <TextField
+                            <TextField
                                 fullWidth
                                 label="Instagram URL"
                                 margin="normal"
@@ -120,7 +134,7 @@ const CreateTeam = (props) => {
                             />
                         </Grid>
                         <Grid item xs={4}>
-                        <TextField
+                            <TextField
                                 fullWidth
                                 label="Github Profile"
                                 margin="normal"
@@ -134,6 +148,7 @@ const CreateTeam = (props) => {
                         </Grid>
                         <Grid item xs={3}>
                             <TextField
+                                required
                                 id="Team"
                                 select
                                 name="team"
@@ -151,6 +166,7 @@ const CreateTeam = (props) => {
                         </Grid>
                         <Grid item xs={3}>
                             <TextField
+                                required
                                 id="Position"
                                 select
                                 label="Position"
@@ -166,7 +182,7 @@ const CreateTeam = (props) => {
                                 ))}
                             </TextField>
                         </Grid>
-                        
+
                         <Grid item xs={6}>
                             <ImageUploader
                                 singleImage={true}

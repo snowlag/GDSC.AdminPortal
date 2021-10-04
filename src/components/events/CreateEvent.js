@@ -14,8 +14,8 @@ import {
     FormControlLabel,
     Checkbox
 } from '@material-ui/core';
+import moment from "moment"
 
-//v5
 
 const CreateEvent = (props) => {
     const [values, setValues] = useState({
@@ -25,11 +25,12 @@ const CreateEvent = (props) => {
         isCompleted: false,
         hasEpisodes: false,
         category: '',
-        poster: '',
         featured: false,
         startTime: new Date(), //event planned date
         endTime: new Date(),
         eventLink: "",
+        startTime: null,
+        endTime: null,
         videoLink: null
     });
 
@@ -50,13 +51,20 @@ const CreateEvent = (props) => {
             ...values,
             [event.target.name]: event.target.value
         });
+
+        if (event.target.name == "startTime" || event.target.name == "endTime") {
+            console.log(new Date(event.target.value).getTime())
+            setValues({
+                ...values,
+                [`${event.target.name}Timestamp`]: new Date(event.target.value).getTime()
+            });
+        }
     };
 
     const handleBoolChange = (event) => {
         let val = false
         if (event.target.value == false || event.target.value == "false") {
             val = true
-            console.log("gytgu")
         }
         console.log(val)
         setValues({
@@ -66,9 +74,23 @@ const CreateEvent = (props) => {
 
     }
 
+    //Add custom validation here if needed
+    const customValidator = () => {
+        //file validation
+        let result = true;
+        console.log(File)
+        if (!File) {
+            result = false
+        }
+        return result
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(values)
+        if (customValidator()) {
+            console.log(values)
+        }
+
     }
 
     return (
@@ -183,6 +205,11 @@ const CreateEvent = (props) => {
                                 onChange={handleChange}
                                 type="datetime-local"
                                 variant="outlined"
+                                inputProps={
+                                    {
+                                        min: moment(new Date(values.startTime).getTime()).format('YYYY-MM-DDTHH:mm')
+                                    }
+                                }
                             />
                         </Grid>
                         <Grid item xs={6}>

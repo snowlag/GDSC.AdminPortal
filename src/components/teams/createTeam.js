@@ -21,7 +21,6 @@ const CreateTeam = (props) => {
     const [values, setValues] = useState({
        name: '',
        description: '',
-       poster: ''
     });
 
     //hooks
@@ -43,10 +42,23 @@ const CreateTeam = (props) => {
         });
     };
 
+      //Add custom validation here if needed
+      const customValidator = () => {
+        //file validation
+        let result = true;
+        console.log(File)
+        if (!File) {
+            result = false
+        }
+        return result
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(values)
+        if (customValidator()) {
+            console.log(values)
+        }
+
     }
 
     return (
