@@ -1,5 +1,5 @@
 {
-  "name": "admin-portal",
+  "name": "gdsc-admin-portal",
   "author": "DeviasIO",
   "licence": "MIT",
   "version": "1.0.0",
@@ -53,7 +53,8 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {},
-  "description": "Admin portal for gdsc website",
+  "description": "",
   "main": "index.js",
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": []
 }

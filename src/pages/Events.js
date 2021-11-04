@@ -1,13 +1,11 @@
 import { Helmet } from 'react-helmet';
 import { Box, Container } from '@material-ui/core';
-import CreateEventForm from 'src/components/events/CreateEvent';
-
-
+import CreateEventForm from '../components/events/CreateEvent';
 
 const Events = () => (
   <>
     <Helmet>
-    <title>Events | BVCOENM</title>
+      <title>Events | BVCOENM</title>
     </Helmet>
     <Box
       sx={{
@@ -19,7 +17,6 @@ const Events = () => (
       <Container maxWidth="lg">
         <CreateEventForm />
       </Container>
-    
     </Box>
   </>
 );

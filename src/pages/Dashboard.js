@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet';
 import { Box, Container, Grid } from '@material-ui/core';
 import Budget from '../components/dashboard/UpcomingEvents';
 import TotalCustomers from '../components/dashboard/CompletedEvents';
-import TotalEvents from "src/components/dashboard/TotalEvents"
+import TotalEvents from '../components/dashboard/TotalEvents';
 
 const Dashboard = () => (
   <>
@@ -17,35 +17,14 @@ const Dashboard = () => (
       }}
     >
       <Container maxWidth={false}>
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={4}
-            xs={12}
-          >
+        <Grid container spacing={3}>
+          <Grid item lg={3} sm={6} xl={4} xs={12}>
             <Budget />
           </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={4}
-            xs={12}
-          >
+          <Grid item lg={3} sm={6} xl={4} xs={12}>
             <TotalCustomers />
           </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={4}
-            xs={12}
-          >
+          <Grid item lg={3} sm={6} xl={4} xs={12}>
             <TotalEvents />
           </Grid>
         </Grid>

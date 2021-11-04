@@ -1,13 +1,11 @@
 import { Helmet } from 'react-helmet';
 import { Box, Container } from '@material-ui/core';
-import CreateTeam from "src/components/teams/createTeam"
-
-
+import CreateTeam from '../components/teams/createTeam';
 
 const Teams = () => (
   <>
     <Helmet>
-    <title>Teams | BVCOENM</title>
+      <title>Teams | BVCOENM</title>
     </Helmet>
     <Box
       sx={{
@@ -19,7 +17,6 @@ const Teams = () => (
       <Container maxWidth="lg">
         <CreateTeam />
       </Container>
-    
     </Box>
   </>
 );
